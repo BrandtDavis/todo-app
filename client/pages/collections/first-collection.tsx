@@ -7,9 +7,9 @@ export default function FirstItem() {
         <>
         <Layout>
                 <Head>
-                    <title>First Item</title>
+                    <title>First Collection</title>
                 </Head>
-                <h1>First Item</h1>
+                <h1>First Collection</h1>
                 <h2>
                     <Link href="/">Home</Link>
                 </h2>

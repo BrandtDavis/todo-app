@@ -9,11 +9,10 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>I'm Jim Bob</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        <h1>Todo Lists</h1>
+        
+        <h2>This is the todo list title</h2>
+        <p>You may have multiple lists, each with their own name</p>
       </section>
     </Layout>
   );
