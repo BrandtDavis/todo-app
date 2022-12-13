@@ -26,6 +26,14 @@ img {
   display: block;
 }
 
+.item-container {
+  background-color: grey;
+  height: 2rem;
+  display: block;
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
