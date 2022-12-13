@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import Layout from '../../components/layout'
+import List from '../../components/List'
 
 export default function FirstItem() {
     return(
@@ -13,6 +14,7 @@ export default function FirstItem() {
                 <h2>
                     <Link href="/">Home</Link>
                 </h2>
+                <List></List>
         </Layout>
         </>
     ) 
