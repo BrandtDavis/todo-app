@@ -5,7 +5,8 @@ interface ItemProps {
 export default function Item (props: ItemProps) {
     return (
         <div className="item-container">
-            {props.label}
+            <input id="check1" className="item-status-checkbox" type="checkbox" />
+            <label htmlFor="check1">{props.label}</label>
         </div>
     )
 }

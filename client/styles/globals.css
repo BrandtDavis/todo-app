@@ -34,6 +34,17 @@ img {
   margin-top: 0.25rem;
 }
 
+
+label, input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
