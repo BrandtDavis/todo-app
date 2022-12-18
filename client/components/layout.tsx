@@ -11,7 +11,7 @@ interface Children {
 }
 
 const name = 'Jim Bob';
-export const siteTitle = 'Next.js Sample Website';
+export const siteTitle = 'Todo App';
 
 export default function Layout({ children, home }: Children ) {
     return (
