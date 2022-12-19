@@ -3,16 +3,18 @@ import Link from 'next/link';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedCollectionsData } from '../lib/collections';
+import { GetStaticProps, GetStaticPaths, GetServerSideProps} from 'next';
 import { ReactNode } from 'react';
 
 // type AllCollectionsData = {
-//   allCollectionsData: ReactNode
+//   allCollectionsData: Rea;
 //   id: string;
 //   date: Date;
 //   title: string;
+//   children: JSX.Element|JSX.Element[];
 // }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async (context) => {
   const allCollectionsData = getSortedCollectionsData();
   return {
     props: {
@@ -21,7 +23,13 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allCollectionsData }:  AllCollectionsData) {
+export default function Home({ allCollectionsData }:  
+  { allCollectionsData: {
+    date: string 
+    title: string
+    id: string
+  }[]
+}) {
   console.log(allCollectionsData)
   return (
     <Layout home>
