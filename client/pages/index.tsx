@@ -4,24 +4,7 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedCollectionsData } from '../lib/collections';
 import { GetStaticProps, GetStaticPaths, GetServerSideProps} from 'next';
-import { ReactNode } from 'react';
-
-// type AllCollectionsData = {
-//   allCollectionsData: Rea;
-//   id: string;
-//   date: Date;
-//   title: string;
-//   children: JSX.Element|JSX.Element[];
-// }
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const allCollectionsData = getSortedCollectionsData();
-  return {
-    props: {
-      allCollectionsData,
-    },
-  };
-}
+import Date from '../components/date'
 
 export default function Home({ allCollectionsData }:  
   { allCollectionsData: {
@@ -48,11 +31,11 @@ export default function Home({ allCollectionsData }:
         <ul className={utilStyles.list}>
           {allCollectionsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              {title}
+             <Link href={`/posts/${id}`}>{title}</Link>
               <br />
-              {id}
-              <br />
-              {date}
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
             </li>
           ))}
         </ul>
@@ -60,4 +43,13 @@ export default function Home({ allCollectionsData }:
 
     </Layout>
   );
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allCollectionsData = getSortedCollectionsData()
+  return {
+    props: {
+      allCollectionsData
+    }
+  }
 }
