@@ -36,7 +36,7 @@ export function getSortedCollectionsData() {
   })
 }
 
-export function getAllPostIds() {
+export function getAllCollectionIds() {
   const fileNames = fs.readdirSync(collectionsDirectory)
   return fileNames.map(fileName => {
     return {
@@ -47,7 +47,7 @@ export function getAllPostIds() {
   })
 }
 
-export async function getPostData(id: string) {
+export async function getCollectionData(id: string) {
   const fullPath = path.join(collectionsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
