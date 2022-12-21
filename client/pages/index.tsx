@@ -21,8 +21,6 @@ export default function Home({ allCollectionsData }:
       </Head>
       <section className={utilStyles.headingMd}>
         <h1>The todo list web app</h1>
-        
-        <Link href="/collections/first-collection">First Collection</Link>
         <p>You may have multiple lists, each with their own name</p>
       </section>
 
@@ -31,7 +29,7 @@ export default function Home({ allCollectionsData }:
         <ul className={utilStyles.list}>
           {allCollectionsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-             <Link href={`/posts/${id}`}>{title}</Link>
+             <Link href={`/collections/${id}`}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
