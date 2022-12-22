@@ -28,7 +28,7 @@ export default function Home({ allCollectionsData }:
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allCollectionsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li className={utilStyles.lisdtItem} key={id}>
              <Link href={`/collections/${id}`}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
