@@ -17,26 +17,26 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     // RESPONSE FOR GET REQUESTS
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
       const { Todo } = await connect() // connect to database
-      res.json(await Todo.findById(id).catch(catcher))
+      return res.json(await Todo.findById(id).catch(catcher))
     },
-    // RESPONSE PUT REQUESTS
-    PUT: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { Todo } = await connect() // connect to database
-      res.json(
-        await Todo.findByIdAndUpdate(id, req.body, { new: true }).catch(catcher)
-      )
-    },
-    // RESPONSE FOR DELETE REQUESTS
-    DELETE: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { Todo } = await connect() // connect to database
-      res.json(await Todo.findByIdAndRemove(id).catch(catcher))
-    },
+    // // RESPONSE PUT REQUESTS
+    // PUT: async (req: NextApiRequest, res: NextApiResponse) => {
+    //   const { Todo } = await connect() // connect to database
+    //   res.json(
+    //     await Todo.findByIdAndUpdate(id, req.body, { new: true }).catch(catcher)
+    //   )
+    // },
+    // // RESPONSE FOR DELETE REQUESTS
+    // DELETE: async (req: NextApiRequest, res: NextApiResponse) => {
+    //   const { Todo } = await connect() // connect to database
+    //   res.json(await Todo.findByIdAndRemove(id).catch(catcher))
+    // },
   }
 
   // Check if there is a response for the particular method, if so invoke it, if not response with an error
   const response = handleCase[method]
   if (response) response(req, res)
-  else res.status(400).json({ error: "No Response for This Request" })
+  else return res.status(400).json({ error: "No Response for This Request (not index)" })
 }
 
 export default handler
