@@ -17,7 +17,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     // RESPONSE FOR GET REQUESTS
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
       const { Todo } = await connect() // connect to database
-      return res.json(Todo)
+    //   console.log(res)
+      return res.json(Todo.findById(id))
     }
   }
 
