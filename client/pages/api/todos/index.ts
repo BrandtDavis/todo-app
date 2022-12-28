@@ -17,13 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
       const { Todo } = await connect() // connect to database
       return res.json(await Todo.find({}).catch(catcher))
-    },
-    // // RESPONSE POST REQUESTS
-    // POST: async (req: NextApiRequest, res: NextApiResponse) => {
-    //   const { Todo } = await connect() // connect to database
-    //   res.json(await Todo.create(req.body).catch(catcher))
-    //   return;
-    // },
+    }
   }
 
   // Check if there is a response for the particular method, if so invoke it, if not response with an error
