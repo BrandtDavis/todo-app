@@ -11,6 +11,5 @@ export interface ResponseFuncs {
   // Interface to define our Todo model on the frontend
   export interface Todo {
     _id?: number
-    item: string
-    completed: boolean
+    name: string
   }
