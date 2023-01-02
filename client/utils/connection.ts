@@ -18,8 +18,5 @@ export const connect = async () => {
   // OUR TODO MODEL
   const Todo = mongoose.models.Todo || mongoose.model("Todo", TodoSchema)
 
-//   const todo = new Todo({name: 'Bill '})
-//   todo.save().then(() => console.log('todo saved')) 
-
   return { conn, Todo }
 }
