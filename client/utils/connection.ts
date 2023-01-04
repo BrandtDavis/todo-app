@@ -5,6 +5,13 @@ const { DATABASE_URL } = process.env
 
 // connection function
 export const connect = async () => {
+
+  if(!DATABASE_URL){
+    throw new Error(
+        "Please define the DATABASE_URL value in your .env file"
+    )
+  }
+
   const conn = await mongoose
     .connect(DATABASE_URL as string)
     .catch(err => console.log(err))
