@@ -14,18 +14,15 @@ export default function Home({ allCollectionsData }:
     id: string
   }[]
 }) {
-  console.log(allCollectionsData)
-
-
   const createTest = async () => {
-    const res = await fetch('/api/test/add', {
+    const res = await fetch('/api/todoLists/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name: 'Name',
-        numItems: 160,
+        items: ['Wash Clothes'],
       })
     })
     const data = await res.json();
