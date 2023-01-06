@@ -5,6 +5,9 @@ import {
 import { connect } from '../../../utils/connection'
 import Todo from '../../../models/ToDoList'
 
+
+const colors = ["Blue", "Green", "Red", "Yellow", "Purple"]
+
 async function addTest(req: NextApiRequest, res:NextApiResponse) {
 
     const body = req.body
@@ -12,6 +15,10 @@ async function addTest(req: NextApiRequest, res:NextApiResponse) {
 
     if(!body.title) {
         return res.status(400).json({ data: 'Title not found, my dude' })
+    }
+
+    if(!colors.includes(body.color)) {
+        return res.status(400).json({ data: 'Not a valid color' })
     }
 
     await connect();
