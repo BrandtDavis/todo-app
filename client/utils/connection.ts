@@ -19,7 +19,9 @@ export const connect = async () => {
 
   // OUR TODO SCHEMA
   const TodoSchema = new mongoose.Schema({
-    name: String,
+    title: String,
+    color: String,
+    items: Array<String>,
   })
 
   // OUR TODO MODEL

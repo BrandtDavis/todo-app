@@ -2,7 +2,8 @@ import { Schema, model, models } from 'mongoose';
   
   // OUR TODO SCHEMA
   const ToDoListSchema = new Schema({
-    name: String,
+    title: String,
+    color: String,
     items: Array<String>,
   })
 
