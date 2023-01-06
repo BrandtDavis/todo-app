@@ -6,7 +6,12 @@ export default function AddTodo() {
         <Layout>
 
             <form action="/api/todoLists/add" method="post">
-                <input type="text" id="name" name="name" />
+                <label htmlFor="title"> Title </label>
+                <input type="text" id="title" name="title" />
+
+                <label htmlFor="color"> Color </label>
+                <input type="text" id="color" name="color" />
+
                 <button type="submit">Submit</button>
             </form>
 
