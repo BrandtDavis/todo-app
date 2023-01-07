@@ -12,7 +12,7 @@ export default function AddTodo() {
                 <label htmlFor="priority"> Priority </label>
                 <select id="priority" name="priority">
                     <option value="low">Low</option>
-                    <option value="medium">Mediun</option>
+                    <option value="medium">Medium</option>
                     <option value="high">High</option>
                 </select>
 
