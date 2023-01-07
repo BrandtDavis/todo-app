@@ -35,9 +35,10 @@ img {
 }
 
 
-label, input {
+label, input, select {
   display: inline-block;
-  vertical-align: middle;
+  width: 100%;
+  padding: 0.5rem 0rem;
 }
 
 input[type="checkbox"] {
