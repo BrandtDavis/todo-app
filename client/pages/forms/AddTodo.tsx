@@ -1,11 +1,11 @@
-import Layout from '../../components/layout';
+import ToDoFormLayout from '../../components/layouts/toDoFormLayout';
 
 export default function AddTodo() {
 
     return (
-        <Layout>
+        <ToDoFormLayout>
 
-            <form action="/api/todoLists/add" method="post">
+            <form action="/api/todoLists/add" method="post" className="toDoForm" >
                 <label htmlFor="title"> Title </label>
                 <input type="text" id="title" name="title" />
 
@@ -22,6 +22,6 @@ export default function AddTodo() {
                 <button type="submit">Submit</button>
             </form>
 
-        </Layout>
+        </ToDoFormLayout>
     )
 }
