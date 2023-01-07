@@ -7,6 +7,7 @@ import Todo from '../../../models/ToDoList'
 
 
 const colors = ["Blue", "Green", "Red", "Yellow", "Purple"]
+const priorities = ["low", "medium", "high"]
 
 async function addTest(req: NextApiRequest, res:NextApiResponse) {
 
@@ -15,6 +16,10 @@ async function addTest(req: NextApiRequest, res:NextApiResponse) {
 
     if(!body.title) {
         return res.status(400).json({ data: 'Title not found, my dude' })
+    }
+
+    if(!priorities.includes(body.priority)) {
+        return res.status(400).json({ data: 'Invalid priority' })
     }
 
     if(!colors.includes(body.color)) {
