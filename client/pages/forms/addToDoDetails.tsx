@@ -1,10 +1,11 @@
 import ToDoFormLayout from '../../components/layouts/toDoFormLayout';
 
-export default function AddTodo() {
+export default function AddTodoForm() {
 
     return (
         <ToDoFormLayout>
 
+            <h1>Add the details for your todo list:</h1>
             <form action="/api/todoLists/add" method="post" className="toDoForm" >
                 <label htmlFor="title"> Title </label>
                 <input type="text" id="title" name="title" />
@@ -19,7 +20,10 @@ export default function AddTodo() {
                 <label htmlFor="color"> Color </label>
                 <input type="text" id="color" name="color" />
 
-                <button type="submit">Submit</button>
+                <label htmlFor="numItems"> Number of Items: </label>
+                <input type="number" id="numItems" name="numItems" />
+
+                <a className="linkButton" href="/forms/addToDoItems">Next</a>
             </form>
 
         </ToDoFormLayout>
