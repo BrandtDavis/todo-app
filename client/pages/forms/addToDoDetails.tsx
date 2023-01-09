@@ -20,10 +20,6 @@ export default function AddTodoForm() {
                 <label htmlFor="color"> Color </label>
                 <input type="text" id="color" name="color" />
 
-                <label htmlFor="numItems"> Number of Items: </label>
-                <input type="number" id="numItems" name="numItems" />
-
-                <a className="linkButton" href="/forms/addToDoItems">Next</a>
             </form>
 
         </ToDoFormLayout>
