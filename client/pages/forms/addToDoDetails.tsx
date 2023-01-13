@@ -6,22 +6,33 @@ export default function AddTodoForm() {
 
 
 
-const [state, setState] = useState("");
+const [state, setState] = useState({});
 
 const [title, setTitle] = useState("");
 const [priority, setPriority] = useState("");
 const [color, setColor] = useState("");
 const [numItems, setNumItems] = useState("");
 
-const createToDoList = () => {
-    
+const createToDoList = async () => {
+    setState({ ...state, loading: true })
+    const response = await fetch('/api/todoLists/add', {
+        method: 'POST',
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ title, priority, color })
+    });
+
+    const content = await response.json();
+    console.log(content)
+    setState({ ...state, loading: false });
 }
 
     return (
         <ToDoFormLayout>
 
             <h1>Add the details for your todo list:</h1>
-            {/* <form action="/api/todoLists/add" method="post" className="toDoForm" > */}
             <form className="toDoForm" >
                 <label htmlFor="title"> Title </label>
                 <input 
