@@ -5,7 +5,6 @@ const TextInput = (props:
 ) => {
 
     const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value)
         props.updateFunction(e.target.value)
     }
 
