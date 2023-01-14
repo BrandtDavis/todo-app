@@ -1,16 +1,20 @@
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 const TextInput = (props: 
-    { id: string, name: string, onChangeFunction: Dispatch<SetStateAction<string>> }
+    { id: string, name: string, updateFunction: Dispatch<SetStateAction<string>> }
 ) => {
+
+    const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value)
+        props.updateFunction(e.target.value)
+    }
+
     return (
         <input 
             type="text" 
             id={props.id}
             name={props.name} 
-            
-            // Needs to be changed, doesn't work 
-            onChange={e => props.onChangeFunction}
+            onChange={updateValue}
         />
     )
 }
