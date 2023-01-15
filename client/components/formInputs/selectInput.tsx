@@ -21,7 +21,7 @@ const SelectInput = (props:
                 name={props.name} 
                 id={props.id}
                 onChange={updateValue}
-                >
+            >
             <option value=""></option>
             {props.selectOptions.map( val =>
                 <option value={val} key={val}>{val}</option>
