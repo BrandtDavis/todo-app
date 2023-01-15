@@ -1,33 +1,37 @@
 import ToDoFormLayout from '../../components/layouts/toDoFormLayout';
+import TextInput from '../../components/formInputs/textInput';
+import NumericInput from '../../components/formInputs/numericInput';
+import SelectInput from '../../components/formInputs/selectInput';
+
 import { useState } from 'react';
 
 
 export default function AddTodoForm() {
 
+    const PRIORITY_OPTIONS = ["Low", "Medium", "High"]
 
+    const [state, setState] = useState({});
 
-const [state, setState] = useState({});
+    const [title, setTitle] = useState("");
+    const [priority, setPriority] = useState("");
+    const [color, setColor] = useState("");
+    const [numItems, setNumItems] = useState(0);
 
-const [title, setTitle] = useState("");
-const [priority, setPriority] = useState("");
-const [color, setColor] = useState("");
-const [numItems, setNumItems] = useState("");
+    const createToDoList = async () => {
+        setState({ ...state, loading: true })
+        const response = await fetch('/api/todoLists/add', {
+            method: 'POST',
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ title, priority, color })
+        });
 
-const createToDoList = async () => {
-    setState({ ...state, loading: true })
-    const response = await fetch('/api/todoLists/add', {
-        method: 'POST',
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title, priority, color })
-    });
-
-    const content = await response.json();
-    console.log(content)
-    setState({ ...state, loading: false });
-}
+        const content = await response.json();
+        console.log(content)
+        setState({ ...state, loading: false });
+    }
 
     return (
         <ToDoFormLayout>
@@ -35,38 +39,32 @@ const createToDoList = async () => {
             <h1>Add the details for your todo list:</h1>
             <form className="toDoForm" >
                 <label htmlFor="title"> Title </label>
-                <input 
-                    type="text" 
-                    id="title" 
+                <TextInput 
                     name="title" 
-                    onChange={e => setTitle(e.target.value)}
+                    id="title" 
+                    updateFunction={setTitle} 
                 />
 
                 <label htmlFor="priority"> Priority </label>
-                <select 
-                    id="priority" 
+                <SelectInput 
                     name="priority"
-                    onChange={e => setPriority(e.target.value)}
-                >
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select>
+                    id="priority"
+                    selectOptions={PRIORITY_OPTIONS}
+                    updateFunction={setPriority}
+                />
 
                 <label htmlFor="color"> Color </label>
-                <input 
-                    type="text" 
-                    id="color" 
+                <TextInput 
                     name="color" 
-                    onChange={e => setColor(e.target.value)}
+                    id="color" 
+                    updateFunction={setColor} 
                 />
 
                 <label htmlFor="numItems"> Number of Items </label>
-                <input 
-                    type="number" 
+                <NumericInput 
                     id="numItems" 
                     name="numItems" 
-                    onChange={e => setNumItems(e.target.value)}
+                    updateFunction={setNumItems} 
                 />
 
 
