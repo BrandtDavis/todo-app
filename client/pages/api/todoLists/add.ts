@@ -7,7 +7,7 @@ import Todo from '../../../models/ToDoList'
 
 
 const colors = ["Blue", "Green", "Red", "Yellow", "Purple"]
-const priorities = ["low", "medium", "high"]
+const priorities = ["Low", "Medium", "High"]
 
 async function addTest(req: NextApiRequest, res:NextApiResponse) {
 
