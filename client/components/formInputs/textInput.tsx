@@ -1,7 +1,12 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 const TextInput = (props: 
-    { id: string, name: string, updateFunction: Dispatch<SetStateAction<string>> }
+    { 
+        name: string, 
+        id: string, 
+        labelValue: string, 
+        updateFunction: Dispatch<SetStateAction<string>>, 
+    }
 ) => {
 
     const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -9,12 +14,15 @@ const TextInput = (props:
     }
 
     return (
-        <input 
-            type="text" 
-            id={props.id}
-            name={props.name} 
-            onChange={updateValue}
-        />
+        <>
+            <label htmlFor={props.name}>{ props.labelValue }</label>
+            <input 
+                type="text" 
+                id={props.id}
+                name={props.name} 
+                onChange={updateValue}
+            />
+        </>
     )
 }
 

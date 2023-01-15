@@ -38,32 +38,32 @@ export default function AddTodoForm() {
 
             <h1>Add the details for your todo list:</h1>
             <form className="toDoForm" >
-                <label htmlFor="title"> Title </label>
                 <TextInput 
                     name="title" 
-                    id="title" 
+                    id="title"
+                    labelValue="Title" 
                     updateFunction={setTitle} 
                 />
 
-                <label htmlFor="priority"> Priority </label>
                 <SelectInput 
                     name="priority"
                     id="priority"
+                    labelValue="Priority"
                     selectOptions={PRIORITY_OPTIONS}
                     updateFunction={setPriority}
                 />
 
-                <label htmlFor="color"> Color </label>
                 <TextInput 
                     name="color" 
-                    id="color" 
+                    id="color"
+                    labelValue="Color" 
                     updateFunction={setColor} 
                 />
 
-                <label htmlFor="numItems"> Number of Items </label>
                 <NumericInput 
-                    id="numItems" 
                     name="numItems" 
+                    id="numItems" 
+                    labelValue="Number of Items"
                     updateFunction={setNumItems} 
                 />
 

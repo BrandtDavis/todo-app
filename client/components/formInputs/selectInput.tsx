@@ -2,8 +2,9 @@ import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
 const SelectInput = (props:
     {
-        id: string,
         name: string,
+        id: string,
+        labelValue: string,
         selectOptions: string[]
         updateFunction: Dispatch<SetStateAction<string>>,
     }
@@ -12,9 +13,10 @@ const SelectInput = (props:
     const updateValue = (e: ChangeEvent<HTMLSelectElement>) => {
         props.updateFunction(e.target.value)
     }
-    
+
     return (
         <>
+            <label htmlFor={props.name}>{ props.labelValue }</label>
             <select 
                 name={props.name} 
                 id={props.id}
@@ -22,7 +24,7 @@ const SelectInput = (props:
                 >
             <option value=""></option>
             {props.selectOptions.map( val =>
-                <option value={val}>{val}</option>
+                <option value={val} key={val}>{val}</option>
             )}
             </select>
         </>

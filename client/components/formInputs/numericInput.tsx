@@ -1,7 +1,12 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 const NumericInput = (props:
-    { id: string, name: string, updateFunction: Dispatch<SetStateAction<number>> }
+    { 
+        name: string, 
+        id: string, 
+        labelValue: string,
+        updateFunction: Dispatch<SetStateAction<number>>, 
+    }
 ) => {
 
     const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -9,12 +14,15 @@ const NumericInput = (props:
     }
 
     return (
-        <input 
-            type="number" 
-            id={props.id}
-            name={props.name}
-            onChange={updateValue}
-        />
+        <>
+            <label htmlFor={props.name}>{ props.labelValue }</label>
+            <input 
+                type="number" 
+                name={props.name}
+                id={props.id}
+                onChange={updateValue}
+                />
+        </>
     )
 
 }
