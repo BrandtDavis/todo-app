@@ -34,6 +34,10 @@ img {
   margin-top: 0.25rem;
 }
 
+.errorMessage {
+  color: red;
+  font-size: 0.75rem;
+}
 
 label, input, select {
   display: inline-block;
