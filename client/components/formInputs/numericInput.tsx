@@ -21,6 +21,7 @@ const NumericInput = (props:
                 name={props.name}
                 id={props.id}
                 onChange={updateValue}
+                required
             />
         </>
     )

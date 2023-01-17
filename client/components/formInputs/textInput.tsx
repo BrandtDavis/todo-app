@@ -21,6 +21,7 @@ const TextInput = (props:
                 id={props.id}
                 name={props.name} 
                 onChange={updateValue}
+                required
             />
         </>
     )
