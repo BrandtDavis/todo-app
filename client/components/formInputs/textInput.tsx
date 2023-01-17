@@ -1,6 +1,9 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
-const TextInput = (props: 
+
+
+const TextInput = (
+    props: 
     { 
         name: string, 
         id: string, 
@@ -23,6 +26,7 @@ const TextInput = (props:
                 onChange={updateValue}
                 required
             />
+            <span className="errorMessage">howdy</span>
         </>
     )
 }

@@ -1,6 +1,7 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
-const NumericInput = (props:
+const NumericInput = (
+    props:
     { 
         name: string, 
         id: string, 
@@ -23,6 +24,7 @@ const NumericInput = (props:
                 onChange={updateValue}
                 required
             />
+            <span className="errorMessage">howdy</span>
         </>
     )
 

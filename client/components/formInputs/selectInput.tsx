@@ -1,6 +1,7 @@
 import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
-const SelectInput = (props:
+const SelectInput = (
+    props: 
     {
         name: string,
         id: string,
@@ -28,6 +29,7 @@ const SelectInput = (props:
                 <option value={val} key={val}>{val}</option>
             )}
             </select>
+            <span className="errorMessage">howdy</span>
         </>
     )
 
