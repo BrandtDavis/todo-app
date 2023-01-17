@@ -14,20 +14,6 @@ export default function Home({ allCollectionsData }:
     id: string
   }[]
 }) {
-  const createTest = async () => {
-    const res = await fetch('/api/todoLists/add', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: 'Name',
-        items: ['Wash Clothes'],
-      })
-    })
-    const data = await res.json();
-    console.log(data)
-  }
 
   return (
     <Layout home>
@@ -37,8 +23,6 @@ export default function Home({ allCollectionsData }:
       <section className={utilStyles.headingMd}>
         <h1>The todo list web app</h1>
         <p>You may have multiple lists, each with their own name</p>
-
-        <button onClick={createTest}>Add to Mongo</button>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
