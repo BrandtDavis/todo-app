@@ -37,12 +37,29 @@ img {
 .errorMessage {
   color: red;
   font-size: 0.75rem;
+  display: none;
+}
+
+input:invalid ~ span {
+  display: block
 }
 
 label, input, select {
   display: inline-block;
   width: 100%;
   padding: 0.5rem 0rem;
+}
+
+input:invalid ~ select {
+  border-color: red;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+input:focus, select:focus {
+  border-color: teal;
 }
 
 input[type="checkbox"] {
