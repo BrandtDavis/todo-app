@@ -1,5 +1,10 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
-
+import { 
+    useState, 
+    ChangeEvent, 
+    Dispatch, 
+    SetStateAction, 
+    FocusEvent, 
+} from "react";
 
 
 const TextInput = (
@@ -12,8 +17,14 @@ const TextInput = (
     }
 ) => {
 
+    const [focused, setFocused] = useState(false);
+
     const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.updateFunction(e.target.value)
+    }
+
+    const handleFocus = (e: FocusEvent<HTMLInputElement>) => {
+        setFocused(true);
     }
 
     return (
@@ -24,6 +35,7 @@ const TextInput = (
                 id={props.id}
                 name={props.name} 
                 onChange={updateValue}
+                onBlur={handleFocus}
                 required
             />
             <span className="errorMessage">howdy</span>
