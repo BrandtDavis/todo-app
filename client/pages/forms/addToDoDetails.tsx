@@ -3,6 +3,8 @@ import TextInput from '../../components/formInputs/textInput';
 import NumericInput from '../../components/formInputs/numericInput';
 import SelectInput from '../../components/formInputs/selectInput';
 
+import  createToDoList  from '../../lib/toDoLists'
+
 import { useState } from 'react';
 
 
@@ -17,19 +19,11 @@ export default function AddTodoForm() {
     const [color, setColor] = useState("");
     const [numItems, setNumItems] = useState(0);
 
-    const createToDoList = async () => {
+    const create = async () => {
         setState({ ...state, loading: true })
-        const response = await fetch('/api/todoLists/add', {
-            method: 'POST',
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ title, priority, color })
-        });
+        const response = await createToDoList(title, priority, color)
 
-        const content = await response.json();
-        console.log(content)
+        console.log(response)
         setState({ ...state, loading: false });
     }
 
@@ -68,7 +62,7 @@ export default function AddTodoForm() {
                 />
 
 
-                <button type="button" onClick={(e) => createToDoList()}> Next </button>
+                <button type="button" onClick={(e) => create()}> Next </button>
 
             </form>
 
