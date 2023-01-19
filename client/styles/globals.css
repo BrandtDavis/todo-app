@@ -48,13 +48,18 @@ label, input, select {
   display: inline-block;
   width: 100%;
   padding: 0.5rem 0rem;
+  border-width: 1px;
 }
 
-input:invalid ~ select {
-  border-color: red;
+input {
+  border-style: solid;
 }
 
 input:invalid {
+  border-color: red;
+}
+
+select:invalid {
   border-color: red;
 }
 
