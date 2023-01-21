@@ -72,6 +72,17 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
+.toDoItem {
+  display: block;
+  margin: 2rem;
+  border-style: solid;
+  max-width: 33%;
+}
+
+.toDoItemH3 {
+  text-align: center;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
