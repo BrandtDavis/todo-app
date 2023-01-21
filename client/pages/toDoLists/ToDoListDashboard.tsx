@@ -1,25 +1,42 @@
+import { useState, useEffect } from 'react';
+
 export default function ToDoListDashboard() {
    
-   const getToDoList = async (
+    const [toDos, setToDos] = useState([{
+            _id: '',
+            title: 'I am a title',
+            priority: 'High',
+            color: '',
+        }]
+    );
 
-   ) => {
-    const response = await fetch('/api/todoLists/getAll', {
-        method: 'GET',
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-    });
-    // console.log(response)
-    return response.json()
-   }
-   
+    // useEffect( () => {
+    //     fetch('/api/todoLists/getAll').then(response => {
+    //         // if(response) {
+    //             return response.json()
+    //         // }
+    //     }).then(jsonRes => setToDos(Object.values(jsonRes)))
+    // }, []);
+
+    // const toDoArrays = Object.values(toDos)
+    // console.log(toDoArrays)
     return (
         <div>
-
-            <h1>Your ToDo Lists</h1>
-
-            <button onClick={getToDoList}>Click Meh</button>
+            <h1>Your ToDo Lists</h1>           
+            {
+                toDos.map( (toDo, i) => 
+                    <div className="toDoItem" key={i}>
+                        <h3 className="toDoItemH3" key={i}>{toDo.title}</h3>
+                        <div>
+                            <ul>                   
+                                <li>This is an item</li>
+                                <li>This is an item</li>
+                                <li>This is an item</li>
+                            </ul>
+                        </div>
+                    </div>    
+                )
+            }
    
         </div>
     );
