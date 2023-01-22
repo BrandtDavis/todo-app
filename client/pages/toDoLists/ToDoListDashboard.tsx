@@ -8,13 +8,6 @@ export default function ToDoListDashboard() {
         priority: string;
         color: string;
     }
-    // const toDo = [
-    //     {
-    //         title: 'I am a title',
-    //         priority: 'High',
-    //         color: '',
-    //     }
-    // ]
 
     const [toDos, setToDos] = useState([
         {
@@ -33,23 +26,14 @@ export default function ToDoListDashboard() {
         }).then(arrayRes => setToDos(arrayRes))
     }, []);
 
-    const toDoArrays = Object.values(toDos)
-    console.log(toDoArrays)
+    const toDoArrays: TODO[] = Object.values(toDos)
     return (
         <div>
             <h1>Your ToDo Lists</h1>           
             {
-                toDoArrays.map( (toDoList: 
-                    {
-                        _id: string,
-                        title: string,
-                        priority: string,
-                        color: string,
-                    }, 
-                    i: number
-                ) => 
+               toDoArrays.map( (toDoList, i) =>
                     <div className="toDoItem" key={i}>
-                        <h3 className="toDoItemH3" key={i}>{toDoList.title}</h3>
+                        <h3 className="toDoItemH3" key={i}>{JSON.stringify(toDoList.title)}</h3>
                         <div>
                             <ul>                   
                                 <li>This is an item</li>
