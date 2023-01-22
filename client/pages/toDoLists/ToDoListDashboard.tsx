@@ -32,7 +32,7 @@ export default function ToDoListDashboard() {
             <h1>Your ToDo Lists</h1>           
             {
                toDoArrays.map( (toDoList, i) =>
-                    <div className="toDoItem" key={i}>
+                    <div className="toDoItemCard" key={i}>
                         <h3 className="toDoItemH3" key={i}>{toDoList.title}</h3>
                         <div>
                             <ul>                   
