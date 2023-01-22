@@ -33,7 +33,7 @@ export default function ToDoListDashboard() {
             {
                toDoArrays.map( (toDoList, i) =>
                     <div className="toDoItem" key={i}>
-                        <h3 className="toDoItemH3" key={i}>{JSON.stringify(toDoList.title)}</h3>
+                        <h3 className="toDoItemH3" key={i}>{toDoList.title}</h3>
                         <div>
                             <ul>                   
                                 <li>This is an item</li>
