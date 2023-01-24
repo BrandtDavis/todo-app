@@ -2,16 +2,16 @@ const ToDoItem = (
     props:
         {
             toDoItem: string,
-            toDoItemKey: string,
-            completed: boolean,
+            // toDoItemKey: string,
+            // completed: boolean,
         }
 ) => {
 
     return (
         <div className="toDoItemContainer">
-            <label htmlFor={props.toDoItemKey}>{props.toDoItem}</label>
+            <label htmlFor={props.toDoItem}>{props.toDoItem}</label>
             <input 
-                name={props.toDoItemKey} 
+                name={props.toDoItem} 
                 type="checkbox" 
                 className="toDoItemCheckbox" 
             />
