@@ -87,6 +87,16 @@ input[type="checkbox"] {
   border-radius: 5px 5px 0 0;
 }
 
+.toDoItemContainer {
+  display: flex;
+  max-width: 80%;
+  margin-left: 1rem;
+}
+
+.toDoItemCheckbox {
+  margin: 0.5rem;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
