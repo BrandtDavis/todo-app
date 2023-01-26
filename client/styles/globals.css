@@ -87,6 +87,10 @@ input[type="checkbox"] {
   border-radius: 5px 5px 0 0;
 }
 
+.toDoItemCard {
+  text-align: center;
+}
+
 .toDoItemContainer {
   display: flex;
   max-width: 80%;
@@ -95,6 +99,14 @@ input[type="checkbox"] {
 
 .toDoItemCheckbox {
   margin: 0.5rem;
+}
+
+.toDoListUpdateButton {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: lightgrey;
+  radius: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
