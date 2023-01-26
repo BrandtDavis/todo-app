@@ -4,7 +4,7 @@ import ToDoItem from '../../components/dashboardCards/toDoItem'
 export default function ToDoListDashboard() {
    
     interface toDoItem {
-        itemName: string,
+        toDoItemName: string,
         completed: boolean,
     }
 
@@ -35,7 +35,7 @@ export default function ToDoListDashboard() {
     }, []);
 
     const toDoArrays: ToDoList[] = Object.values(toDos)
-    console.log(typeof toDoArrays[0].items[0])
+    console.log(toDoArrays[0].items[0])
     return (
         <div>
             <h1>Your ToDo Lists</h1>           
@@ -47,7 +47,7 @@ export default function ToDoListDashboard() {
    
                             {toDoList.items.map( (item, i) =>
                                 <ToDoItem 
-                                    toDoItemName={item.itemName}
+                                    toDoItemName={item.toDoItemName}
                                     completed={item.completed}
                                     key={i}
                                 />
