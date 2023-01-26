@@ -1,20 +1,21 @@
 const ToDoItem = (
     props:
         {
-            toDoItem: string,
-            // toDoItemKey: string,
-            // completed: boolean,
+            toDoItemName: string,
+            completed: boolean,
         }
 ) => {
 
     return (
         <div className="toDoItemContainer">
-            <label htmlFor={props.toDoItem}>{props.toDoItem}</label>
+            <label htmlFor={props.toDoItemName}>{props.toDoItemName}</label>
             <input 
-                name={props.toDoItem} 
+                name={props.toDoItemName} 
                 type="checkbox" 
-                className="toDoItemCheckbox" 
+                className="toDoItemCheckbox"
+                checked={props.completed} 
             />
+
         </div>
     )
 }
