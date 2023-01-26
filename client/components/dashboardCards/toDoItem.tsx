@@ -13,7 +13,7 @@ const ToDoItem = (
                 name={props.toDoItemName} 
                 type="checkbox" 
                 className="toDoItemCheckbox"
-                checked={props.completed} 
+                defaultChecked={props.completed} 
             />
 
         </div>

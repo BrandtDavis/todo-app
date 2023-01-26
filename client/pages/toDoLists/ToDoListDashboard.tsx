@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import ToDoItem from '../../components/dashboardCards/toDoItem'
+import ToDoCard from '../../components/dashboardCards/toDoCard'
 
 export default function ToDoListDashboard() {
    
@@ -41,23 +41,13 @@ export default function ToDoListDashboard() {
             <h1>Your ToDo Lists</h1>           
             {
                toDoArrays.map( (toDoList, i) =>
-                    <div className="toDoItemCard" key={i}>
-                        <h3 className="toDoItemH3" key={i}>{toDoList.title}</h3>
-                        <div>
-   
-                            {toDoList.items.map( (item, i) =>
-                                <ToDoItem 
-                                    toDoItemName={item.toDoItemName}
-                                    completed={item.completed}
-                                    key={i}
-                                />
-                                )             
-                            }            
-                        </div>
-                     </div>    
+                    <ToDoCard 
+                        key={i}
+                        toDoListTitle={toDoList.title}
+                        toDoListItems={toDoList.items}
+                    />
                 )
             } 
-   
         </div>
     );
 }
