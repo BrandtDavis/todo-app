@@ -9,7 +9,7 @@ import Todo from '../../../models/ToDoList'
 const colors = ["Blue", "Green", "Red", "Yellow", "Purple"]
 const priorities = ["Low", "Medium", "High"]
 
-async function addTest(req: NextApiRequest, res:NextApiResponse) {
+async function addToDoList(req: NextApiRequest, res:NextApiResponse) {
 
     const body = req.body
     console.log('body: ', body)
@@ -31,4 +31,4 @@ async function addTest(req: NextApiRequest, res:NextApiResponse) {
     console.log("todo: ", toDo)
     res.status(200).json({toDo})
 }
-export default addTest;
+export default addToDoList;
