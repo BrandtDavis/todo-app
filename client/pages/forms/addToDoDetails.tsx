@@ -1,6 +1,5 @@
 import ToDoFormLayout from '../../components/layouts/toDoFormLayout';
 import TextInput from '../../components/formInputs/textInput';
-import NumericInput from '../../components/formInputs/numericInput';
 import SelectInput from '../../components/formInputs/selectInput';
 
 import  createToDoList  from '../../lib/toDoLists'
@@ -17,11 +16,11 @@ export default function AddTodoForm() {
     const [title, setTitle] = useState("");
     const [priority, setPriority] = useState("");
     const [color, setColor] = useState("");
-    const [numItems, setNumItems] = useState(0);
+    const [toDoItems, setToDoItems] = useState("");
 
     const create = async () => {
         setState({ ...state, loading: true })
-        const response = await createToDoList(title, priority, color)
+        const response = await createToDoList(title, priority, color, toDoItems.split(','))
 
         console.log(response)
         setState({ ...state, loading: false });
@@ -54,11 +53,11 @@ export default function AddTodoForm() {
                     updateFunction={setColor} 
                 />
 
-                <NumericInput 
-                    name="numItems" 
-                    id="numItems" 
-                    labelValue="Number of Items"
-                    updateFunction={setNumItems} 
+                <TextInput 
+                    name="toDoItems" 
+                    id="toDoItems" 
+                    labelValue="ToDo List Items"
+                    updateFunction={setToDoItems} 
                 />
 
 
