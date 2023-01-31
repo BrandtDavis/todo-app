@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react';
+import ToDoCard from '../../components/dashboardCards/toDoCard'
 
 export default function ToDoListDashboard() {
    
-    interface TODO {
+    interface toDoItem {
+        toDoItemName: string,
+        completed: boolean,
+    }
+
+    interface ToDoList {
         _id: string;
         title: string;
         priority: string;
         color: string;
+        items: toDoItem[];
     }
 
     const [toDos, setToDos] = useState([
@@ -15,6 +22,7 @@ export default function ToDoListDashboard() {
             title: '',
             priority: '',
             color: '',
+            items: [],
         }
     ]);
 
@@ -26,25 +34,20 @@ export default function ToDoListDashboard() {
         }).then(arrayRes => setToDos(arrayRes))
     }, []);
 
-    const toDoArrays: TODO[] = Object.values(toDos)
+    const toDoArrays: ToDoList[] = Object.values(toDos)
+    console.log(toDoArrays[0].items[0])
     return (
         <div>
             <h1>Your ToDo Lists</h1>           
             {
                toDoArrays.map( (toDoList, i) =>
-                    <div className="toDoItem" key={i}>
-                        <h3 className="toDoItemH3" key={i}>{toDoList.title}</h3>
-                        <div>
-                            <ul>                   
-                                <li>This is an item</li>
-                                <li>This is an item</li>
-                                <li>This is an item</li>
-                            </ul>
-                        </div>
-                     </div>    
+                    <ToDoCard 
+                        key={i}
+                        toDoListTitle={toDoList.title}
+                        toDoListItems={toDoList.items}
+                    />
                 )
             } 
-   
         </div>
     );
 }
