@@ -8,7 +8,7 @@ import Todo from '../../../models/ToDoList'
 async function getAllToDoLists(req: NextApiRequest, res:NextApiResponse) {
 
     await connect();
-    const todo = await Todo.find().exec();
-    res.status(200).json(todo)
+    const toDo = await Todo.find().exec();
+    res.status(200).json(toDo)
 }
 export default getAllToDoLists;
