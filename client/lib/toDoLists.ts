@@ -1,10 +1,3 @@
-import ToDoItemSchema from "../models/ToDoItem";
-
-interface ToDoItem {
-    toDoItemName: string,
-    completed: boolean,
-}
-
 const createToDoList = async (
         title: string,
         priority: string,
