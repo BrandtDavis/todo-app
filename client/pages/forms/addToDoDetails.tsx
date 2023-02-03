@@ -56,7 +56,7 @@ export default function AddTodoForm() {
                 <TextInput 
                     name="toDoItems" 
                     id="toDoItems" 
-                    labelValue="ToDo List Items"
+                    labelValue="ToDo List Items (Note that order will be fixed for the near future)"
                     updateFunction={setToDoItems} 
                 />
 
