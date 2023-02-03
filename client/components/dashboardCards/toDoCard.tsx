@@ -1,6 +1,7 @@
+import { useState, useEffect } from 'react';
 import ToDoItem from '../../components/dashboardCards/toDoItem'
 
-interface toDoItem {
+interface ToDoItem {
     toDoItemName: string,
     completed: boolean,
 }
@@ -8,19 +9,35 @@ interface toDoItem {
 const ToDoCard = (
     props: {
         toDoListTitle: string,
-        toDoListItems: toDoItem[],
+        toDoListItems: string[],
     }
 ) => {
+
+    const [toDoItems, setToDoItems] = useState([
+        {
+            toDoItemName: '',
+            completed: '',
+        }
+    ]);
+
+    const toDoItemIds = props.toDoListItems.toString()
+    useEffect( () => {
+        fetch('/api/todoLists/getToDoItem').then(response => {
+            return response.json()
+        }).then(response => setToDoItems(response))
+    }, []);
+
 
     return (
         <div className="toDoItemCard">
             <h3 className="toDoItemH3">{props.toDoListTitle}</h3>
-            {props.toDoListItems.map( (item, i) =>
-                <ToDoItem 
-                    toDoItemName={item.toDoItemName}
-                    completed={item.completed}
-                    key={i}
-                />
+            {
+                toDoItems.map( (item, i) =>
+                    <ToDoItem 
+                        toDoItemName={item.toDoItemName}
+                        completed={item.completed}
+                        key={i}
+                    />
                 )                
             }  
         <button className="toDoListUpdateButton">Update</button>
