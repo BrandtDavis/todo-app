@@ -27,7 +27,7 @@ export default function ToDoListDashboard() {
     ]);
 
     useEffect( () => {
-        fetch('/api/todoLists/getAll').then(response => {
+        fetch('/api/todoLists/getAllToDoLists').then(response => {
             // if(response) {
                 return response.json()
            // }
@@ -35,7 +35,7 @@ export default function ToDoListDashboard() {
     }, []);
 
     const toDoArrays: ToDoList[] = Object.values(toDos)
-    console.log(toDoArrays[0].items[0])
+    console.log(toDoArrays[0])
     return (
         <div>
             <h1>Your ToDo Lists</h1>           
