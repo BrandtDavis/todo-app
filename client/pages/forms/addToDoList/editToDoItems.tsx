@@ -1,6 +1,6 @@
-import ToDoFormLayout from '../../components/layouts/toDoFormLayout';
+import ToDoFormLayout from '../../../components/layouts/toDoFormLayout';
 
-export default function AddToDoListItems(){
+export default function AddToDoListItems() {
 
     const getItem = async() => {
         const res = await fetch('/api/todoLists/getToDoItemById');
