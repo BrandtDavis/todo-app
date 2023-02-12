@@ -11,7 +11,8 @@ export default function AddToDoListItems(){
         <ToDoFormLayout>
         <form action="">
 
-            <input type="text" placeholder="Customize your items" />
+            <h2>To Do List Placeholder</h2>
+            <h3>Please specify the priority for each item below:</h3>
 
             <a href="/forms/addToDoDetails">Previous</a>
 
